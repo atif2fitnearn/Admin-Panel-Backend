@@ -1,0 +1,35 @@
+org: fitnearn
+app: fitnearn
+service: Lambda_Handler
+
+
+provider:
+ name: aws
+ runtime: nodejs20.x
+ region: ap-south-1
+ credentials:
+ timeout: 30 # Increase timeout to 30 seconds or more
+
+
+functions:
+ be:
+ handler: handler.handler
+ events:
+ - http:
+ path: /
+ method: get
+ cors: false
+ - http:
+ path: /{proxy+}
+ method: any
+ cors: false
+
+
+package:
+ exclude:
+ - src/**
+ excludeDevDependencies: true
+
+
+# plugins:
+#  - serverless-offline

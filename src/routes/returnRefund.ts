@@ -1,7 +1,8 @@
 import express, { Request, Response } from 'express';
-// import  DataDeletionModel from '../models/dataDeletionModel'
 import returnRefundModel from '../models/returnRefundModel';
+
 const router = express.Router();
+
 router.post('/return', async (req: Request, res: Response): Promise<any> => {
     const { content } = req.body; // Get content from request body
     

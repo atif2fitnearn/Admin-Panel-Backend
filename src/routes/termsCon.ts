@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import termsConModel from '../models/termsConModel';
+
 const router = express.Router();
+
 router.post('/terms', async (req: Request, res: Response): Promise<any> => {
     const { content } = req.body; // Get content from request body
     
